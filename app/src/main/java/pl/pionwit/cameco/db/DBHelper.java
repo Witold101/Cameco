@@ -24,10 +24,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TABLE_CASH + "(" + ID + " integer primary key, name text," +
-                " title text, date_bay text, date_finish text, aktiv integer)");
-        db.execSQL("create table "+ TABLE_IMG + "(" + ID + " integer primary key, path text," +
-                " main integer, cash_id integer, FOREIGN KEY(cash_id) REFERENCES "+TABLE_CASH+" ("+ID+") ON DELETE CASCADE)");
+        db.execSQL("create table "+ TABLE_CASH + "(" + ID + " integer primary key AUTOINCREMENT, " +
+                "name text, title text, date_bay text, date_finish text, aktiv integer)");
+        db.execSQL("create table "+ TABLE_IMG + "(" + ID + " integer primary key AUTOINCREMENT, " +
+                "path text, main integer, cash_id integer, FOREIGN KEY(cash_id) REFERENCES "+
+                TABLE_CASH+" ("+ID+") ON DELETE CASCADE)");
     }
 
     @Override

@@ -1,6 +1,8 @@
 package pl.pionwit.cameco.classentity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by vi_st on 13.12.2016.
@@ -13,10 +15,10 @@ public class CashMemo {
     private String title; // описание товара
     private Date date; // дата покупки товара
     private int period; // срок гарантии
-    private String[] images; // массив путей к картинкам товара
+    private List<CashImg> cashImgs;
 
     public CashMemo() {
-        this.images = new String[5];
+        cashImgs=new ArrayList<>();
     }
 
     public Long getId() {
@@ -59,11 +61,11 @@ public class CashMemo {
         this.period = period;
     }
 
-    public String[] getImages() {
-        return images;
+    public List<CashImg> getCashImgs() {
+        return cashImgs;
     }
 
-    public void setImages(String[] images) {
-        this.images = images;
+    public void setCashImgs(List<CashImg> cashImgs) {
+        this.cashImgs = cashImgs;
     }
 }
