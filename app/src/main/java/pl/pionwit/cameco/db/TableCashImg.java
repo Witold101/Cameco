@@ -1,5 +1,7 @@
 package pl.pionwit.cameco.db;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.List;
 
 import pl.pionwit.cameco.classentity.CashImg;
@@ -11,28 +13,33 @@ import pl.pionwit.cameco.classentity.CashImg;
 
 public class TableCashImg{
 
-    private static List<CashImg> table ;
+    private SQLiteDatabase sqLiteDatabase;
+    private List<CashImg> table ;
 
-    public static void Add(CashImg record) {
+    public TableCashImg(SQLiteDatabase sqLiteDatabase) {
+        this.sqLiteDatabase=sqLiteDatabase;
+    }
+
+    public void Add(CashImg record) {
 
     }
 
-    public static void Dell(CashImg record) {
+    public void Dell(CashImg record) {
 
     }
 
-    public static void DellToId(Long id) {
+    public void DellToId(Long id) {
 
     }
 
-    public static void Edit(CashImg record) {
+    public void Edit(CashImg record) {
     }
 
-    public static CashImg GetElementToId(Long id) {
+    public CashImg GetElementToId(Long id) {
         return null;
     }
 
-    public static List<CashImg> GetTable() {
+    public List<CashImg> GetTable() {
         return table;
     }
 }

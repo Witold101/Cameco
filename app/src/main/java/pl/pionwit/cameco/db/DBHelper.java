@@ -12,11 +12,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSISON = 1;
-    private static final String DATABASE_NAME = "cashDB";
-    private static final String ID = "_id";
+    public static final String DATABASE_NAME = "cashDB";
 
-    private static final String TABLE_CASH ="table_cash";
-    private static final String TABLE_IMG = "table_img";
+    public static final String TABLE_CASH ="table_cash";
+    public static final String TABLE_IMG = "table_img";
+
+    public static final String ID = "_id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_DATE_BAY = "date_bay";
+    public static final String KEY_DATE_FINISH = "date_finish";
+    public static final String KEY_AKTIV = "aktiv";
+    public static final String KEY_PATH = "path";
+    public static final String KEY_MAIN = "main";
+    public static final String KEY_CASH_ID = "cash_id";
+
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSISON);
@@ -25,9 +36,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+ TABLE_CASH + "(" + ID + " integer primary key AUTOINCREMENT, " +
-                "name text, title text, date_bay text, date_finish text, aktiv integer)");
+                KEY_NAME+" text, "+KEY_TITLE+" text, "+KEY_DATE_BAY+" text, "+KEY_DATE_FINISH+" text, "+KEY_AKTIV+" integer)");
         db.execSQL("create table "+ TABLE_IMG + "(" + ID + " integer primary key AUTOINCREMENT, " +
-                "path text, main integer, cash_id integer, FOREIGN KEY(cash_id) REFERENCES "+
+                KEY_PATH+" text, "+KEY_MAIN+" integer, "+KEY_CASH_ID+" integer, FOREIGN KEY("+KEY_CASH_ID+") REFERENCES "+
                 TABLE_CASH+" ("+ID+") ON DELETE CASCADE)");
     }
 
