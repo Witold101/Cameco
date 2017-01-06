@@ -15,11 +15,17 @@ public class CashMemo {
     private String title; // описание товара
     private Date date; // дата покупки товара
     private int period; // срок гарантии
+    private int aktiv;// Активна ли запись
     private List<CashImg> cashImgs;
 
     public CashMemo() {
         cashImgs=new ArrayList<>();
     }
+
+    public CashMemo(List<CashImg> cashImgs){
+        this.cashImgs=cashImgs;
+    }
+
 
     public Long getId() {
         return id;
@@ -59,6 +65,14 @@ public class CashMemo {
 
     public void setPeriod(int period) {
         this.period = period;
+    }
+
+    public int getAktiv() {
+        return aktiv;
+    }
+
+    public void setAktiv(int aktiv) {
+        this.aktiv = aktiv;
     }
 
     public List<CashImg> getCashImgs() {
