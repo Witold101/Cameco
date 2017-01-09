@@ -3,5 +3,20 @@
     <string name="action_settings">Settings</string>
     <string name="tab_title">Описание</string>
     <string name="tab_photo">Фото</string>
+    <string name="name">Наименование</string>
+    <string name="title">Описание</string>
+    <string name="calendar">Дата покупки</string>
+    <string name="guaranty">Срок гарантии</string>
+
+    <string-array name="dayofweek">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Котопятница</item>
+        <item>Субкота</item>
+        <item>Воскресенье</item>
+    </string-array>
+
 
 </resources>

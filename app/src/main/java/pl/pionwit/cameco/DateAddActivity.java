@@ -11,7 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import pl.pionwit.cameco.adapters.DataAddPagerAdapter;
@@ -24,12 +28,26 @@ import pl.pionwit.cameco.adapters.DataAddPagerAdapter;
 public class DateAddActivity extends AppCompatActivity {
     TabLayout tabLayout;
     Context context;
+    Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_add);
 
+//------------------- Spiner ---------------------------------------------------
+        spinner = (Spinner)findViewById(R.id.sp_yer);
+
+        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
+        ArrayAdapter<CharSequence> adapterSp = ArrayAdapter.createFromResource(this,
+                R.array.dayofweek, android.R.layout.simple_spinner_item);
+        // Определяем разметку для использования при выборе элемента
+        adapterSp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Применяем адаптер к элементу spinner
+        spinner.setAdapter(adapterSp);
+
+//---------------------------------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_add_date);
         setSupportActionBar(toolbar);
 
@@ -44,6 +62,7 @@ public class DateAddActivity extends AppCompatActivity {
                 tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

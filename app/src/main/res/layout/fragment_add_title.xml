@@ -2,14 +2,97 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textView"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tv_layout_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        >
+
+        <EditText
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:lines="1"
+            android:maxLength="125"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tv_layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_layout_name"
+        >
+
+        <EditText
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:lines="1"
+            android:maxLength="250"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tv_layout_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_layout_title"
+        >
+        <EditText
+            android:id="@+id/tv_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/calendar"
+            android:lines="1"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/iv_calendar"
+        android:layout_alignRight="@id/tv_layout_calendar"
+        android:layout_alignTop="@id/tv_layout_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Tab 1"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        app:srcCompat="@drawable/ic_event_available_black_24dp"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tv_layout_yer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_layout_calendar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        >
+
+        <EditText
+            android:id="@+id/tv_yer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/guaranty"
+            android:lines="1"
+            android:inputType="number"
+            android:maxLength="3"
+            android:ems="8"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <Spinner
+        android:padding="16dp"
+        android:id="@+id/sp_yer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_layout_yer"
+        android:layout_below="@id/tv_layout_calendar"
+        />
 
 </RelativeLayout>
